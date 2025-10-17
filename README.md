@@ -19,30 +19,16 @@ Chez **BRX**, nous concevons et imprimons en 3D des pièces adaptées à la prat
 
 Chaque produit est conçu pour être **léger**, **résistant** et **adapté à ton matériel**.
 
----
 
-## 🧰 Technologies du site
-
-Ce site est un **site vitrine + mini e-commerce** réalisé en :
-- **HTML / CSS / JavaScript pur**
-- Hébergé gratuitement sur **GitHub Pages**
-- Fonctionnalités :
-  - Catalogue produits
-  - Panier simple
-  - Formulaires de contact et sur-mesure (envoi par mail)
-  - Design responsive (mobile & desktop)
-
----
-
-## 🌐 Accès au site
-
-👉 [https://brx3d.github.io](https://brx3d.github.io)
-
-*(Remplace ce lien si ton dépôt porte un autre nom ou si tu ajoutes un domaine personnalisé.)*
-
----
-
-## 📦 Structure du projet
+<style>
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* assombrit le fond */
+  z-index: -1;
+}
+</style>
 
 ---
 
