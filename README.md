@@ -44,3 +44,34 @@ Ce site est un **site vitrine + mini e-commerce** réalisé en :
 
 ## 📦 Structure du projet
 
+---
+
+## ✉️ Contact
+
+📧 **contact@brx3d.example**  
+📍 Toulouse, France  
+📱 +33 6 12 34 56 78  
+
+Suivez-nous sur les réseaux :
+- Instagram : [@brx.3d](https://instagram.com/brx.3d)
+- Strava Club : BRX Cycling *(optionnel)*
+
+---
+
+## ⚙️ Mise à jour & personnalisation
+
+Pour modifier le site :
+1. Clique sur ton fichier `index.html` dans GitHub  
+2. Clique sur **“Edit” (le crayon)**  
+3. Mets à jour les textes, prix, images ou e-mails  
+4. Clique sur **“Commit changes”**  
+
+GitHub Pages actualise automatiquement ton site en quelques secondes 🚀  
+
+---
+
+### 🧡 Merci d’utiliser BRX 3D
+
+Conçu pour les cyclistes, par un passionné de cyclisme.  
+> *L’impression 3D au service de la performance.*
+
