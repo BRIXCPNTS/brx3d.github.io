@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>BRX — Impression 3D pour cyclistes</title>
+<meta name="description" content="BRX — Impression 3D de pièces mécaniques vélo et pièces sur mesure pour triathlètes et cyclistes." />
+
+<!-- Styles simples -->
+<style>
+  :root{
+    --bg:#0f0f10; --card:#111; --accent:#e03a3a; --muted:#9aa0a6; --white:#f5f5f5;
+    --maxw:1100px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#070707 0%, #111 100%);color:var(--white);-webkit-font-smoothing:antialiased}
+  .wrap{max-width:var(--maxw);margin:24px auto;padding:20px}
+  header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:52px;height:52px;background:linear-gradient(135deg,var(--accent),#ff7b7b);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;color:#111}
+  .nav a{color:var(--muted);text-decoration:none;margin-left:16px}
+  .hero{display:flex;gap:28px;align-items:center;margin-top:28px}
+  .hero-left{flex:1}
+  .hero h1{font-size:28px;margin:0 0 8px}
+  .hero p{color:var(--muted);margin:0 0 12px}
+  .cta{display:inline-block;background:var(--accent);color:#111;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:600}
+  .hero-right{width:420px;background:linear-gradient(180deg,#0b0b0b,#151515);padding:16px;border-radius:12px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .card{background:var(--card);padding:14px;border-radius:10px}
+  .card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+  .card h3{margin:8px 0 4px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .price{font-weight:700;margin-top:8px}
+  footer{margin-top:36px;color:var(--muted);font-size:14px;padding:18px 0;border-top:1px solid rgba(255,255,255,0.03)}
+  .small{font-size:13px;color:var(--muted)}
+  /* Responsive */
+  @media (max-width:900px){
+    .hero{flex-direction:column}
+    .grid{grid-template-columns:repeat(2,1fr)}
+    .hero-right{width:100%}
+  }
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr}
+  }
+
+  /* Modal / Cart */
+  #cartBtn{background:#191919;border:1px solid rgba(255,255,255,0.03);color:var(--white);padding:8px 12px;border-radius:8px}
+  .cart-panel{position:fixed;right:20px;top:80px;width:320px;background:#080808;border-radius:10px;padding:12px;box-shadow:0 6px 30px rgba(0,0,0,0.7);display:none;z-index:60}
+  .cart-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+  .btn{display:inline-block;padding:8px 12px;border-radius:8px;text-decoration:none;background:#222;color:var(--white);border:1px solid rgba(255,255,255,0.03)}
+  .muted{color:var(--muted)}
+  form .field{margin-bottom:10px}
+  input[type="text"],input[type="email"],textarea,select{width:100%;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:#0b0b0b;color:var(--white)}
+  label{display:block;margin-bottom:6px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">BRX</div>
+        <div>
+          <div style="font-weight:700">BRX</div>
+          <div class="small">Impression 3D — Pièces vélo & sur mesure</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="#products">Produits</a>
+        <a href="#surmesure">Sur-mesure</a>
+        <a href="#contact">Contact</a>
+        <button id="cartBtn" title="Voir le panier">Panier (<span id="cartCount">0</span>)</button>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1>BRX — L'impression 3D au service de la performance cycliste</h1>
+        <p>Pièces mécaniques pour vélos et pièces sur mesure pour triathlètes & cyclistes exigeants. Léger, solide et adapté à ta pratique.</p>
+        <a class="cta" href="#products">Découvrir nos produits</a>
+        <div style="margin-top:16px;color:var(--muted);font-size:14px">Livraison FR / Retrait Toulouse sur RDV</div>
+      </div>
+      <div class="hero-right">
+        <div style="font-size:14px;color:var(--muted)">Produit en vedette</div>
+        <h2 style="margin:6px 0 0">Support GPS léger — BRX Race</h2>
+        <p class="muted" style="font-size:13px;margin-top:6px">Support robuste, compatible Wahoo & Garmin, conçu pour minimiser la traînée.</p>
+        <div style="margin-top:10px;font-weight:700">€39.00</div>
+        <div style="margin-top:12px">
+          <button class="btn" onclick="addToCart('BRX Race Support GPS',39)">Ajouter au panier</button>
+          <a class="btn" href="#surmesure" style="margin-left:8px">Demander sur-mesure</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODUITS -->
+    <h2 id="products" style="margin-top:26px">Nos produits</h2>
+    <div class="grid" id="productGrid">
+      <!-- cards insérées par JS -->
+    </div>
+
+    <!-- SUR-MESURE -->
+    <section id="surmesure" style="margin-top:28px">
+      <h2>Sur-mesure</h2>
+      <p class="muted">Tu as besoin d'une pièce unique ? Envoie-nous un brief. (Pour l'instant, le téléchargement de fichiers n'est pas envoyé automatiquement — voir note ci-dessous)</p>
+      <div class="card" style="max-width:700px">
+        <form id="customForm">
+          <div class="field">
+            <label>Nom</label>
+            <input type="text" id="c_name" required placeholder="Ton nom">
+          </div>
+          <div class="field">
+            <label>Email</label>
+            <input type="email" id="c_email" required placeholder="email@example.com">
+          </div>
+          <div class="field">
+            <label>Type de pièce</label>
+            <select id="c_type">
+              <option>Support GPS</option>
+              <option>Porte-bidon</option>
+              <option>Adaptateur roue</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Description / utilisation</label>
+            <textarea id="c_msg" rows="4" placeholder="Ex : nécessaire pour triathlon, contrainte poids, fixation X..."></textarea>
+          </div>
+          <div class="field">
+            <label>Fichier (STL) — note</label>
+            <input type="file" id="c_file" accept=".stl,.zip">
+            <div class="muted small" style="margin-top:6px">Important : ce formulaire ne transmet pas de fichier — pour recevoir des fichiers poids-lourd, envoie-les par e-mail à <strong>contact@brx3d.example</strong> ou partage via Google Drive et colle le lien dans la description.</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" type="button" onclick="submitCustom()">Envoyer la demande</button>
+            <button class="btn" type="reset">Réinitialiser</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" style="margin-top:28px">
+      <h2>Contact</h2>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:260px" class="card">
+          <h3>Coordonnées</h3>
+          <p class="muted">Email : contact@brx3d.example<br>Téléphone : +33 6 12 34 56 78<br>Retrait : Toulouse (sur RDV)</p>
+        </div>
+        <div style="flex:1;min-width:300px" class="card">
+          <h3>Nous écrire</h3>
+          <form id="contactForm">
+            <div class="field"><label>Nom</label><input type="text" id="ct_name" required></div>
+            <div class="field"><label>Email</label><input type="email" id="ct_email" required></div>
+            <div class="field"><label>Message</label><textarea id="ct_msg" rows="3"></textarea></div>
+            <div><button class="btn" type="button" onclick="sendContact()">Envoyer</button></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+        <div>© <strong>BRX</strong> — Impression 3D pièces vélo</div>
+        <div class="small">Conçu pour triathlètes & cyclistes • Toulouse</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Panier (panel) -->
+  <div id="cartPanel" class="cart-panel">
+    <h3>Ton panier</h3>
+    <div id="cartItems"></div>
+    <div style="margin-top:12px">
+      <div class="muted small">Total : <strong id="cartTotal">€0.00</strong></div>
+      <div style="margin-top:8px;display:flex;gap:8px">
+        <button class="btn" onclick="clearCart()">Vider</button>
+        <button class="btn" onclick="checkout()">Commander</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+/* Données produits - modifie/ajoute selon tes pièces */
+const PRODUCTS = [
+  { id:1, name:"Support GPS BRX Race", price:39, img:"https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60", desc:"Support GPS léger, compatible Wahoo/Garmin." },
+  { id:2, name:"Porte-bidon Aero", price:29, img:"https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=60", desc:"Porte-bidon profilé, fixation solide et poids réduit." },
+  { id:3, name:"Adaptateur axe de roue", price:49, img:"https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=800&q=60", desc:"Adaptateur sur mesure pour axes non standards." },
+  { id:4, name:"Cache câble cadre", price:19, img:"https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=800&q=60", desc:"Cache propre et discret pour routage interne." },
+  { id:5, name:"Clip nutrition triathlon", price:24, img:"https://images.unsplash.com/photo-1520975919212-9b91d0f2e8b3?auto=format&fit=crop&w=800&q=60", desc:"Support nutrition facile d'accès pendant la course." }
+];
+
+/* Rendu des cartes produits */
+const grid = document.getElementById('productGrid');
+function renderProducts(){
+  grid.innerHTML = "";
+  PRODUCTS.forEach(p=>{
+    const div = document.createElement('div'); div.className='card';
+    div.innerHTML = `
+      <img src="${p.img}" alt="${p.name}">
+      <h3>${p.name}</h3>
+      <p class="muted">${p.desc}</p>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:8px">
+        <div class="price">€${p.price.toFixed(2)}</div>
+        <div>
+          <button class="btn" onclick="addToCart('${p.name}',${p.price})">Ajouter</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(div);
+  });
+}
+renderProducts();
+
+/* Panier simple stocké en localStorage */
+let cart = JSON.parse(localStorage.getItem('brx_cart')||'[]');
+function saveCart(){ localStorage.setItem('brx_cart',JSON.stringify(cart)); updateCartUI(); }
+function addToCart(name,price){
+  cart.push({name,price}); saveCart();
+  alert(name + " ajouté au panier");
+}
+function updateCartUI(){
+  document.getElementById('cartCount').textContent = cart.length;
+  const items = document.getElementById('cartItems');
+  items.innerHTML = '';
+  let total = 0;
+  cart.forEach((it,i)=>{
+    total += Number(it.price);
+    const r = document.createElement('div'); r.className='cart-row';
+    r.innerHTML = `<div>${it.name}</div><div>€${Number(it.price).toFixed(2)} <button style="margin-left:8px" onclick="removeItem(${i})">✕</button></div>`;
+    items.appendChild(r);
+  });
+  document.getElementById('cartTotal').textContent = '€'+total.toFixed(2);
+}
+function removeItem(idx){ cart.splice(idx,1); saveCart(); }
+function clearCart(){ if(confirm('Vider le panier ?')){ cart=[]; saveCart(); } }
+
+/* Toggle panel */
+const cartBtn = document.getElementById('cartBtn');
+const cartPanel = document.getElementById('cartPanel');
+cartBtn.addEventListener('click', ()=>{ cartPanel.style.display = cartPanel.style.display === 'block' ? 'none' : 'block'; });
+
+updateCartUI();
+
+/* Checkout : génère un e-mail prêt à envoyer (ici mailto) */
+function checkout(){
+  if(cart.length===0){ alert("Panier vide"); return; }
+  const total = cart.reduce((s,i)=>s+Number(i.price),0);
+  const lines = cart.map(it=>`- ${it.name} : €${Number(it.price).toFixed(2)}`).join('%0A');
+  const body = `Bonjour%0A%0AJe souhaite commander les articles suivants :%0A${lines}%0A%0ATotal : €${total.toFixed(2)}%0A%0ANom : %0AEmail : %0AAdresse de livraison : %0ACommentaires : %0A%0AMerci,%0A`;
+  const mail = `mailto:contact@brx3d.example?subject=Commande BRX&body=${body}`;
+  window.location.href = mail;
+}
+
+/* Formulaire sur-mesure : récupère données et ouvre mailto */
+function submitCustom(){
+  const name = document.getElementById('c_name').value.trim();
+  const email = document.getElementById('c_email').value.trim();
+  const type = document.getElementById('c_type').value;
+  const msg = document.getElementById('c_msg').value.trim();
+  if(!name || !email){ alert('Merci de renseigner nom et email'); return; }
+  const body = encodeURIComponent(`Demande sur-mesure\n\nNom: ${name}\nEmail: ${email}\nType: ${type}\nDescription: ${msg}\n\n(Fichiers STL : voir note sur la page.)`);
+  window.location.href = `mailto:contact@brx3d.example?subject=Demande sur-mesure BRX&body=${body}`;
+}
+
+/* Contact simple */
+function sendContact(){
+  const n = document.getElementById('ct_name').value.trim();
+  const e = document.getElementById('ct_email').value.trim();
+  const m = document.getElementById('ct_msg').value.trim();
+  if(!n||!e){ alert('Nom et email requis'); return; }
+  const body = encodeURIComponent(`Message depuis le site BRX\n\nNom: ${n}\nEmail: ${e}\nMessage: ${m}`);
+  window.location.href = `mailto:contact@brx3d.example?subject=Contact BRX&body=${body}`;
+}
+</script>
+</body>
+</html>
